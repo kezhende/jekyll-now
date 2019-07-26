@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>BLESS</title>
+    <link rel="stylesheet" href="css/bless.css"/>
+    <link rel="stylesheet" href="css/animate.css"/>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--头部-->
+<nav class="navbar navbar-default navbar-fixed-top ">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand">LOVE</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myCollapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="myCollapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Propose</a></li>
+                <li><a href="bless.html">Bless</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--主体-->
+<div class="section container animated bounceInLeft">
+    <h2>Marry Me</h2>
+    <h3>幸福时刻即将来临</h3>
+    <div>
+        <h4>倒计时：</h4>
+        <span id="timer">00:00:00</span>
+    </div>
+</div>
+<div class="section1 container">
+    <div class="wushi" id="d1"></div>
+    <div class="media">
+        <div class="media-left media-middle">
+            <img class="media-object animated flash" src="images/media1.JPG" alt="">
+            <a href="res/memory.mp4" target="_blank"><h1>MEMORY</h1></a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">来自兄弟们的祝福</h4>
+            <div class="well">
+                <p>谢谢你们的见证</p>
+                <p>谢谢你们的祝福</p>
+                <p>HHH的你们欢乐多</p>
+                <a href="res/bless1.mp4" target="_blank">
+                    <p>BLESS!-1</p>
+                </a>
+                <a href="res/bless2.mp4" target="_blank">
+                    <p>BLESS!-2</p>
+                </a>
+                <a href="res/bless3.mp4" target="_blank">
+                    <p>BLESS!-3</p>
+                </a>
+            </div>
+        </div>
+        <hr/>
+        <div class="media-right media-middle">
+            <a href="#">
+                <img class="media-object animated bounce" src="images/media3.jpg" alt="">
+            </a>
+        </div>
+    </div>
+        <!--我们的历程-->
+    <div id="lc">
+        <video class="bgvideo" src="res/memory.mp4" autoplay muted loop width="100%" ></video>
+    </div>
+</div>
+<!--底部-->
+<div class="bottom-section">
+    <div class="container">
+        <h3>谢谢你们的见证，有你们，真好！</h3>
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+            <div class="copy">
+                <p></p>
+            </div>
+    </div>
+</footer>
+<div id="bgMusic">
+    <audio src="res/Why Did It Have To Be Me.mp3" autoplay loop controls></audio>
+</div>
+<script>
+    function task(){
+        var end=new Date("2017/10/01 07:00:00");
+        var now=new Date();
+        var s=parseInt((end-now)/1000);
+        var timer=document.getElementById("timer");
+        if(s>0){
+            var d=parseInt(s/3600/24);
+            if(d<10) d="0"+d;
+            //s/3600/24,再下取整
+            var h=parseInt(s%(3600*24)/3600);
+            if(h<10) h="0"+h;
+            //s/(3600*24)的余数,再/3600,再下去整
+            var m=parseInt(s%3600/60);
+            if(m<10) m="0"+m;
+            //s/3600的余数,再/60，再下取整
+            s%=60;//s/60的余数
+            if(s<10) s="0"+s;
+            //还有: ?天?小时?分?秒
+            timer.innerHTML=d+"天"+h+"小时"+m+"分"+s+"秒";
+        }else{
+            clearInterval(timer);
+            timer=null;
+            timer.innerHTML="幸福时刻到来！！！";
+        }
+    }
+    task();
+    var timer=setInterval(task,1000);
+</script>
+
+<style type="text/css">
+    body{
+       background:url(./images/try11.jpg)  no-repeat center center;
+       background-size:cover;
+       background-attachment:fixed;
+       background-color:#CCCCCC;
+    }
+</style>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/bootlint.js"></script>
+<!--<script>-->
+    <!--bootlint.showLintReportForCurrentDocument([]);-->
+<!--</script>-->
+</body>
+</html>
